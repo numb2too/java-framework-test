@@ -49,7 +49,7 @@ public class ToAddPageServiceTest {
         mockUser.setUserName("Test User");
 
         // 設置模擬行為
-        when(userDao.getHruser(loginUserId)).thenReturn(mockUser);
+        when(userDao.getUser(loginUserId)).thenReturn(mockUser);
 
         // 創建請求對象
         ToAddPageRequest request = new ToAddPageRequest();
@@ -70,7 +70,7 @@ public class ToAddPageServiceTest {
                 response.geteDate().matches("\\d{4}\\d{2}\\d{2}")); // 假設日期格式為 yyyy/MM/dd
 
         // 驗證 userDao.getHruser 是否被調用
-        verify(userDao).getHruser(loginUserId);
+        verify(userDao).getUser(loginUserId);
     }
 
     @Test(expected = NullPointerException.class)
@@ -79,7 +79,7 @@ public class ToAddPageServiceTest {
         String loginUserId = "nonExistentUser";
 
         // 設置模擬行為返回 null
-        when(userDao.getHruser(loginUserId)).thenReturn(null);
+        when(userDao.getUser(loginUserId)).thenReturn(null);
 
         // 創建請求對象
         ToAddPageRequest request = new ToAddPageRequest();

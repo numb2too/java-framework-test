@@ -5,5 +5,5 @@ import oa.common.model.User;
 
 public interface UserDao {
 
-    User getHruser(String empId);
+    User getUser(String empId);
 }

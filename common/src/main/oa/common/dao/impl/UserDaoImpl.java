@@ -13,7 +13,7 @@ public class UserDaoImpl implements UserDao {
         this.dbTalk1 = dbTalk1;
     }
     @Override
-    public User getHruser(String empId) {
+    public User getUser(String empId) {
         User user = new User();
         String sql = "select userId, userName, userDepId, userDepName from user where userId = '" + Convert.ToSql(empId) + "'";
         String[][] dbData = DataBaseUtil.queryFromPool(dbTalk1,sql);

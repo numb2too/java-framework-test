@@ -18,7 +18,7 @@ public class ToAddPageService {
 
     public ToAddPageResponse getResponse(ToAddPageRequest request) {
 
-        User user = userDao.getHruser(request.getLoginUserId());
+        User user = userDao.getUser(request.getLoginUserId());
 
         ToAddPageResponse response = new ToAddPageResponse();
         response.setUserName(user.getUserName());
