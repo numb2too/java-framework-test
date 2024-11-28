@@ -9,7 +9,7 @@ public class PValidate extends Bproc {
     Talk dbTalk1;
     Talk dbTalk2;
     @Override
-    public String validate(String value) {
+    public String validate(String value){
 
         this.dbTalk1 = getTalk();
         this.dbTalk2=getTalk("dbTalk2");

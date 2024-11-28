@@ -2,7 +2,12 @@ package oa.q212;
 
 import jcx.Hproc;
 import jcx.Talk;
+import oa.q212.bin.model.request.ToAddPageRequest;
+import oa.q212.bin.model.response.ToAddPageResponse;
+import oa.q212.bin.service.ToAddPageService;
 import util.Convert;
+
+import static oa.q212.bin.parameter.Q212Parameter.*;
 
 public class PLoad extends Hproc {
 
@@ -13,34 +18,31 @@ public class PLoad extends Hproc {
     public void action() {
 
         this.dbTalk1 = getTalk();
-        this.dbTalk2=getTalk("dbTalk2");
 
         String objName = getName();
-        if("TO_ADD_PAGE_BTN".equals(objName)){
+        if (TO_ADD_PAGE_BTN.equals(objName)) {
             toAddPage();
-        }else if("SAVE_BTN".equals(objName)){
+        } else if (SAVE_BTN.equals(objName)) {
             saveBtn();
         }
 
     }
 
-    private void toAddPage(){
-        String empId = getUser();
-        String sql = "select hecname,depName from hruser where empID = '" + Convert.ToSql(empId) + "'";
-        String[][] dbData = dbTalk1.queryFromPool(sql);
-        String hecname="";
-        String depName="";
-        if(dbData.length>0 && dbData[0].length>0){
-            hecname= dbData[0][0];
-            depName= dbData[0][1];
-        }
+    private void toAddPage() {
+        String loginUserId = getUser();
 
-        setValue("HECNAME", hecname);
-        setValue("DEPNAME", depName);
+        ToAddPageRequest request = new ToAddPageRequest();
+        request.setLoginUserId(loginUserId);
+
+        ToAddPageService toAddPageService = new ToAddPageService(dbTalk1);
+        ToAddPageResponse response = toAddPageService.getResponse(request);
+        setValue(USER_ID, response.getUserId());
+        setValue(USER_NAME, response.getUserName());
+        setValue(E_DATE, response.geteDate());
 
     }
 
-    private void saveBtn(){
+    private void saveBtn() {
         String uuid = getValue("UUID");
         String hecname = getValue("HECNAME");
         String depName = getValue("DEPNAME");
