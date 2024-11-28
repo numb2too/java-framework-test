@@ -12,14 +12,14 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../lib/DMaker底層元件" />
+          <root url="file://$MODULE_DIR$/../lib/三方底層元件" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../lib/DMaker底層元件" />
+          <root url="file://$MODULE_DIR$/../lib/三方底層元件" />
         </SOURCES>
-        <jarDirectory url="file://$MODULE_DIR$/../lib/DMaker底層元件" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/../lib/DMaker底層元件" recursive="false" type="SOURCES" />
+        <jarDirectory url="file://$MODULE_DIR$/../lib/三方底層元件" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../lib/三方底層元件" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
     <orderEntry type="module-library">

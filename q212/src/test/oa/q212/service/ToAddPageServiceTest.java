@@ -67,7 +67,7 @@ public class ToAddPageServiceTest {
 
         logger.log(Level.INFO, "eDate: {0}", response.geteDate());
         assertTrue("eDate should match today's date pattern",
-                response.geteDate().matches("\\d{4}\\d{2}\\d{2}")); // 假設日期格式為 yyyy/MM/dd
+                response.geteDate().matches("\\d{4}\\d{2}\\d{2}")); // 假設日期格式為 yyyyMMdd
 
         // 驗證 userDao.getHruser 是否被調用
         verify(userDao).getUser(loginUserId);
