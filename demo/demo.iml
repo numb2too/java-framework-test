@@ -9,5 +9,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="testDao" />
+    <orderEntry type="module" module-name="jcx" />
   </component>
 </module>

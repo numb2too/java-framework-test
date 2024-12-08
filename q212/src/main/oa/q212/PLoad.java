@@ -38,7 +38,6 @@ public class PLoad extends Hproc {
         ToAddPageResponse response = toAddPageService.getResponse(request);
         setValue(USER_ID, response.getUserId());
         setValue(USER_NAME, response.getUserName());
-        setValue(E_DATE, response.geteDate());
 
     }
 

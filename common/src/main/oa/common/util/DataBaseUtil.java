@@ -30,6 +30,17 @@ public class DataBaseUtil {
         }
     }
 
+    public static void execFromPool(Talk talk, String sql) {
+        validateParameters(talk, sql);
+
+        try {
+            talk.execFromPool(sql);
+            logQuerySuccess(sql);
+        } catch (Exception e) {
+            handleQueryException(sql, e);
+        }
+    }
+
     private static void validateParameters(Talk talk, String sql) {
         if (talk == null) {
             throw new MyException("Talk object cannot be null");
